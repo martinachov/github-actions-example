@@ -40,7 +40,7 @@ jobs:
         image: martinachov/github-actions-app
         tag: latest
         registry: docker.io
-        dockerfile: github-actions-app/Dockerfile
+        dockerfile: github-actions-example/Dockerfile
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASS }}
 
