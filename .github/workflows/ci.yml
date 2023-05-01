@@ -33,5 +33,15 @@ jobs:
         
     - name: Build with Maven
       run: mvn clean package
+      
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+        image: martinachov/github-actions-app
+        tag: latest
+        registry: docker.io
+        dockerfile: github-actions-example/Dockerfile
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASS }}
 
     
