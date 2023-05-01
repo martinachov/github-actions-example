@@ -1,5 +1,9 @@
 package com.martinachov.github.actions;
 
+import javax.annotation.PostConstruct;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +14,14 @@ public class GithubActionsExampleApplication {
 		SpringApplication.run(GithubActionsExampleApplication.class, args);
 	}
 
+	@PostConstruct
+    public void init()
+    {
+        Logger log = LoggerFactory.getLogger(GithubActionsExampleApplication.class);
+        log.info("Java app started");
+    }
+
+    public String getStatus() {
+        return "OK";
+    }
 }
