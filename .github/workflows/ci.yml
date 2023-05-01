@@ -38,7 +38,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v4
       with:
         image: martinachov/github-actions-app
-        tags: latest
+        tag: latest
         registry: docker.io
         dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_HUB_USER }}
