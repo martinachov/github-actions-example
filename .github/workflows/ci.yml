@@ -50,6 +50,9 @@ jobs:
         file: ./Dockerfile
         pull: true
         push: true
+        cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USER }}/github-actions-project:latest
+        cache-to: type=inline
         tags: ${{ secrets.DOCKER_HUB_USER }}/github-actions-project:latest
+        build-args: JAR_FILE=target/*.jar
 
     
