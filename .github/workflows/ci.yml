@@ -43,16 +43,12 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
     
-    - name: Build and push to docker hub
-      uses: docker/build-push-action@v4
+    - name: Build and Push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
       with:
-        context: .
-        file: ./Dockerfile
-        pull: true
-        push: true
-        cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USER }}/github-actions-project:latest
-        cache-to: type=inline
-        tags: ${{ secrets.DOCKER_HUB_USER }}/github-actions-project:latest
-        build-args: JAR_FILE=target/*.jar
+        image: martinachov/github-actions-app
+        registry: docker.io
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASS }}
 
     
