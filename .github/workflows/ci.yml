@@ -41,6 +41,8 @@ jobs:
         tag: latest
         registry: docker.io
         dockerfile: Dockerfile
+        pull: true
+        push: true
         username: ${{ secrets.DOCKER_HUB_USER }}
         password: ${{ secrets.DOCKER_HUB_PASS }}
 
